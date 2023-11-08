@@ -1,7 +1,7 @@
 import UIKit
 
 
-public typealias Block = ([String]) -> Void
+public typealias Block = ([String], UIImage) -> Void
 
 public class BillReader: NSObject  {
     
@@ -54,7 +54,7 @@ extension BillReader: UIImagePickerControllerDelegate, UINavigationControllerDel
             
             ReadImage().readTextFromImage(image: image) {
                 text in
-                self.completionBlock?(text)
+                self.completionBlock?(text, image)
             }
             
         }
